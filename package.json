@@ -1,18 +1,17 @@
 {
   "name": "language-bel",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "BEL language support in Atom",
   "repository": "https://github.com/cebel/atom-bel-language",
   "keywords": [
     "bel",
     "language",
     "grammar",
-    "syntax",
+    "syntax"
   ],
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
