@@ -1,6 +1,6 @@
 {
   "name": "language-bel",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "BEL language support in Atom",
   "repository": "https://github.com/cebel/atom-bel-language",
   "keywords": [
