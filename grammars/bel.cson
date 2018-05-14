@@ -1,0 +1,162 @@
+# BEL 1.0 and 2.0 grammar
+# grammar keywords: '(include|match|captures|begin|end|beginCaptures|endCaptures|name|patterns|0|1|2|3|4|5|6|7|8|9|comment|fileTypes|scopeName|repository|contentName|firstLineMatch|foldingStartMarker|foldingStopMarker)'
+
+scopeName: 'source.bel'
+name: 'BEL'
+fileTypes: ['bel']
+
+foldingStartMarker: '' # A regular expression that checks for the start of a foldable area (such as `{`).
+foldingStopMarker: '' # A regular expression that checks for the end of a foldable area (such as `}`). If both folding markers are matched in the same line, there will be no foldable area.
+
+
+patterns: [
+	{
+		include: '#comments'
+	}
+	{
+		include: '#numbers'
+	}
+	{
+		include: '#strings'
+	}
+	{
+		include: '#keywords'
+	}
+	{
+		include: '#functions'
+	}
+	{
+		include: '#entities'
+	}
+]
+
+repository:
+	comments:
+		patterns: [
+			{
+				begin: '#'
+				end: '\\n'
+				name: 'comment.line.hash.bel'
+			}
+		]
+
+	numbers:
+		patterns: [
+			{
+				match: '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((E|e)(\\+|-)?[0-9]+)?\\b'
+				name: 'constant.numeric.bel'
+			}
+		]
+
+	strings:
+		patterns: [
+			{
+				begin: '"'
+				beginCaptures:
+					'0':
+						name: 'punctuation.definition.string.begin.bel'
+				end: '"(?!")'
+				endCaptures:
+					'0':
+						name: 'punctuation.definition.string.end.bel'
+				name: 'string.quoted.double.bel'
+				patterns: [
+					{
+						match: '\\\\'
+						name: 'constant.character.escape.bel'
+					}
+				]
+			}
+		]
+
+	keywords:
+		patterns: [
+			{
+				match: '( (->|=>|-\\||=\\||--|>>|:>|) )|\\b(increases|directlyIncreases|decreases|directlyDecreases|rateLimitingStepOf|causesNoChange|cnc|regulates|reg|negativeCorrelation|neg|positiveCorrelation|pos|association|orthologous|transcribedTo|translatedTo|hasMember|hasComponent|isA|subProcessOf|analogousTo|biomarkerFor|prognosticBiomarkerFor|actsIn|hasProduct|hasVariant|hasModification|reactantIn|translocates|includes|hasMembers|hasComponents)\\b'
+				name: 'keyword.relations.bel'
+			}
+			{
+				match: '^(SET\\s+(DOCUMENT|Citation|Evidence)|DEFINE\\s+(NAMESPACE|ANNOTATION)\\s+AS\\s+(URL|LIST|PATTERN)|UNSET)\\b'
+				name: 'keyword.set.bel'
+			}
+			{
+				match: '\\s+AS\\s+(URL|PATTERN)(?=\\s+")'
+				name: 'keyword.set.bel'
+			}
+			{
+				match: '\\s+AS\\s+LIST(?=\\s+\\{\\s*")'
+				name: 'keyword.set.bel'
+			}
+			{
+				match: '^SET\\s+(Name|Description|Version|Authors|ContactInfo|Copyright|Licenses)\\b'
+				name: 'constant.property.bel'
+			}
+			{
+				match: '^(SET)\\s+'
+				name: 'keyword.set.bel'
+			}
+		]
+
+	functions:
+		patterns: [
+			{
+				match: '\\b(function)\\s+(?:[^=]+=\\s*)?(\\w+)(?:\\s*\\(.*\\))?'
+				captures:
+					'1':
+						name: 'keyword.control.bel'
+					'2':
+						name: 'entity.name.function.bel'
+				name: 'meta.function.bel'
+			}
+			{
+				comment: 'BEL abundance functions'
+				match: '\\b(a|abundance|g|geneAbundance|m|microRNAAbundance|p|proteinAbundance|r|rnaAbundance|complex)\\b'
+				name: 'support.function.bel'
+			}
+			{
+				comment: 'Other functions'
+				match: '\\b(var|cat|catalyticActivity|chap|chaperoneActivity|gtp|gtpBoundActivity|kinaseActivity|kin|pep|peptidaseActivity|phos|phosphataseActivity|ribo|ribosylationActivity|tscript|transcriptionalActivity|tport|transportActivity|act|molecularActivity|composite|cellSurfaceExpression|surf|reaction|rxn|degradation|deg|cellSecretion|sec|translocation|tloc|biologicalProcess|bp|pathology|path|molecularActivity|ma|activity|act|fusion|fus|location|loc|fragment|frag|proteinModification|pmod)\\b'
+				name: 'support.function.bel'
+			}
+		]
+
+
+	entities:
+		patterns: [
+			{
+				match: '(?<=(a|g|m|p|r)\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=abundance\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=geneAbundance\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=microRNAAbundance\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=proteinAbundance\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=rnaAbundance\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=complex\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=path\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+			{
+				match: '(?<=bp\\()[A-Za-z0-9_]+\\s*(?:)'
+				name: 'variable.language.bel'
+			}
+		]
