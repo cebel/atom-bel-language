@@ -79,9 +79,14 @@ repository:
 				name: 'keyword.relations.bel'
 			}
 			{
-				match: '^(SET\\s+(DOCUMENT|Citation|Evidence)|DEFINE\\s+(NAMESPACE|ANNOTATION)\\s+AS\\s+(URL|LIST|PATTERN)|UNSET)\\b'
+				match: '^\\s*SET\\s+(DOCUMENT|Citation|Evidence)\\b'
 				name: 'keyword.set.bel'
 			}
+			{
+				match: '^\\s*(SET|DEFINE)\\s+(NAMESPACE|ANNOTATION)\\b'
+				name: 'keyword.set.bel'
+			}
+
 			{
 				match: '\\s+AS\\s+(URL|PATTERN)(?=\\s+")'
 				name: 'keyword.set.bel'
@@ -91,11 +96,11 @@ repository:
 				name: 'keyword.set.bel'
 			}
 			{
-				match: '^SET\\s+(Name|Description|Version|Authors|ContactInfo|Copyright|Licenses)\\b'
+				match: '^\\s*SET\\s+(Name|Description|Version|Authors|ContactInfo|Copyright|Licenses)\\b'
 				name: 'constant.property.bel'
 			}
 			{
-				match: '^(SET)\\s+'
+				match: '^\\s*(SET|UNSET)\\b'
 				name: 'keyword.set.bel'
 			}
 		]
