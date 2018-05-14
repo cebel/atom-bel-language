@@ -1,24 +1,18 @@
 {
-  "name": "language-dtd",
-  "version": "0.2.1",
-  "description": "DTD language support in Atom",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebastienscout/atom-dtd-language.git"
-  },
-  "license": "MIT",
-  "engines": {
-    "atom": "*"
-  },
+  "name": "language-bel",
+  "version": "0.1.0",
+  "description": "BEL language support in Atom",
+  "repository": "https://github.com/cebel/atom-bel-language",
   "keywords": [
-    "dtd",
+    "bel",
     "language",
     "grammar",
     "syntax",
-    "snippets"
   ],
-  "dependencies": {},
-  "bugs": {
-    "url": "https://github.com/sebastienscout/atom-dtd-language/issues"
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
   }
 }
