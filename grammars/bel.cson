@@ -123,7 +123,7 @@ repository:
 			}
 			{
 				comment: 'Other functions'
-				match: '\\b(var|cat|catalyticActivity|chap|chaperoneActivity|gtp|gtpBoundActivity|kinaseActivity|kin|pep|peptidaseActivity|phos|phosphataseActivity|ribo|ribosylationActivity|tscript|transcriptionalActivity|tport|transportActivity|act|molecularActivity|composite|cellSurfaceExpression|surf|reaction|rxn|degradation|deg|cellSecretion|sec|translocation|tloc|biologicalProcess|bp|pathology|path|molecularActivity|ma|activity|act|fusion|fus|location|loc|fragment|frag|proteinModification|pmod)\\b'
+				match: '\\b(var|variant|cat|catalyticActivity|chap|chaperoneActivity|gtp|gtpBoundActivity|kinaseActivity|kin|pep|peptidaseActivity|phos|phosphataseActivity|ribo|ribosylationActivity|tscript|transcriptionalActivity|tport|transportActivity|act|molecularActivity|composite|cellSurfaceExpression|surf|reaction|rxn|degradation|deg|cellSecretion|sec|translocation|tloc|biologicalProcess|bp|pathology|path|molecularActivity|ma|activity|act|fusion|fus|location|loc|fragment|frag|proteinModification|pmod)\\b'
 				name: 'support.function.bel'
 			}
 		]
